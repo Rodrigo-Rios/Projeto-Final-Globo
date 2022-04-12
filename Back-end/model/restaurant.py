@@ -20,9 +20,9 @@ class RestaurantsModel:
     def to_dict(self):
         
         return {
-            "Restaurant Name": self.name,
-            "Restaurant Address": self.address,
+            "restaurantName": self.name,
+            "restaurantAddress": self.address,
             "description": self.description,
-            "image_restaurant": self.image_restaurant,
-            "responsible_name": self.responsible_name
+            "imageRestaurant": self.image_restaurant,
+            "responsibleName": self.responsible_name
             }

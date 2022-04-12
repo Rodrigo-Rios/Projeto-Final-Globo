@@ -23,9 +23,9 @@ class ProductsModel:
     def to_dict(self):
         # restaurant = Restaurants.query.filter_by(restaurant_id=Products.reference_restaurant_id).first()
         return {
-            "Name": self.name,
-            "Image_product": self.image_product,
+            "name": self.name,
+            "imageProduct": self.image_product,
             "description": self.description,
-            "Price": self.price,
-            "Extras": self.extras,
+            "price": self.price,
+            "extras": self.extras,
             }
