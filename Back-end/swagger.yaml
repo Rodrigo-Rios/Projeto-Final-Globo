@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  description: Food App
+  version: 1.0.0
+  title: JASON´s Food
+servers:
+  - url: http://jasonfood.com/api/v1
+
+tags:
+  - name: restaurants
+
+paths:
+  /restaurants:
+    post:
+      tags:
+        - restaurants
+      summary: Adds a new restaurant
+      requestBody:
+        description: Objeto de criação do usuário
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: 
+                  type: string
+                  example: PoneiBurguer
+                address:
+                  type: string
+                  example: Rua do Ponei, 23
+                about: 
+                  type: string
+                  example: Hamburgueria raiz
+                url_logo: 
+                  type: string
+                  example: https://www.google.com/url?sa=i&url=https%3A%2F%2Fguiaanimal.net%2Farticles%2F510&psig=AOvVaw3O5rz44t8afqfKpSyrQctD&ust=1649808914217000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCOj_1aifjfcCFQAAAAAdAAAAABAG
+                person_in_charge: 
+                    type: string
+                    example: Juninho Carlos 
+      responses:
+        "200":
+          description: Lista de salas com número de mebros e limite máximo
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/Restaurant'
+        default:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: An error has occurred
+                  client_message:
+                    type: string
+                    example: An error has occurred while inserting a new restaurant 
+    get:
+      tags:
+        - restaurants
+      summary: Gets all restaurants
+      responses:
+        "200":
+          description: resposta de sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Restaurant'
+                  
+        default:
+          description: Erro do servidor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: An error has occurred
+                  client_message:
+                    type: string
+                    example:  An error has occurred while getting restaurants    
+components:
+  schemas:
+    Restaurant:
+      description: A restaurant's data
+      type: object
+      properties:
+        id: 
+          type: number
+          example: 1
+        name: 
+          type: string
+          example: PoneiBurguer
+        address:
+          type: string
+          example: Rua do Ponei, 23
+        about: 
+          type: string
+          example: Hamburgueria raiz
+        url_logo: 
+          type: string
+          example: https://www.google.com/url?sa=i&url=https%3A%2F%2Fguiaanimal.net%2Farticles%2F510&psig=AOvVaw3O5rz44t8afqfKpSyrQctD&ust=1649808914217000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCOj_1aifjfcCFQAAAAAdAAAAABAG
+        person_in_charge: 
+            type: string
+            example: Juninho Carlos 
+        created_at:
+          type: string
+          example: "2022-02-14 18:44:04"
