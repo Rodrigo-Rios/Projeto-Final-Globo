@@ -1,0 +1,9 @@
+Products
+
+Post: http://127.0.0.1:5000/api/v1/restaurants/<id do restaurantes>
+Get:  http://127.0.0.1:5000/api/v1/restaurants/<id do restaurantes>
+
+Restaurants
+
+Post: http://127.0.0.1:5000/api/v1/restaurants
+Get:  http://127.0.0.1:5000/api/v1/restaurants
