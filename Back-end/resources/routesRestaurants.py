@@ -13,7 +13,11 @@ def create_restaurants():
     new_restaurant = RestaurantsModel(body["name"], body["address"], body["description"], 
     body["image_restaurant"], body["responsible_name"])
 
-    
+    already_exists = Restaurants.query.filter_by(name=new_restaurant.name).first()
+
+    if already_exists:
+        abort(400, description="Restaurant already exists")
+
     restaurant = Restaurants(name = new_restaurant.name, address = new_restaurant.address, description = new_restaurant.description,
     image_restaurant = new_restaurant.image_restaurant, responsible_name = new_restaurant.responsible_name)
     database.session.add(restaurant)
