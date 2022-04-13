@@ -24,17 +24,27 @@ def create_restaurants():
         ('responsible_name', gl.required, gl.type_(str))
     )
 
+    
+
+    validate_name(field_validations, restaurant)
+    restaurant.name = restaurant.name.casefold()
+    
     already_exists = Restaurants.query.filter_by(
-        name=new_restaurant.name).first()
+        name=new_restaurant.name.casefold()).first()
 
     if already_exists:
         abort(400, description="Restaurant already exists")
-
-    validate_name(field_validations, restaurant)
+    
     validate_address(field_validations, restaurant)
+    restaurant.address = restaurant.address.casefold()
+    
     validate_description(field_validations, restaurant)
+    restaurant.description = restaurant.description.casefold()
+    
     validate_image(field_validations, restaurant)
+    
     validate_responsible(field_validations, restaurant)
+    restaurant.responsible_name = restaurant.responsible_name.casefold()
 
     database.session.add(restaurant)
     database.session.commit()
