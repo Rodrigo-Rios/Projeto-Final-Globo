@@ -4,7 +4,7 @@ from resources.database_product import Products
 from resources.database_restaurant import Restaurants
 from flask import abort, jsonify, request
 from collections import OrderedDict
-
+import gladiator as gl
 # from resources.validate import *
 
 def checkForDuplicates (elements):
@@ -34,8 +34,23 @@ def create_product(id):
                 
         product = Products(name = new_product.name, image_product = new_product.image_product, description = new_product.description, 
         price = new_product.price, extras = new_product.extras, reference_restaurant_id = id)
-        database.session.add(product)
-        database.session.commit()
+
+        field_validations = (
+        ('name', gl.required, gl.type_(str)),
+        ('image_product', gl.required, gl.type_(str)),
+        ('description', gl.required, gl.type_(str)),
+        ('price', gl.required, gl.type_(float)),
+        ('extras', gl.required, gl.type_(list)),
+        ('reference_restaurant_id', gl.required, gl.type_(int))
+        )
+        result = gl.validate(field_validations, product)
+
+        if result:
+            database.session.add(product)
+            database.session.commit()
+        else:
+            abort(400, description="Type incorrect")
+        
 
         return jsonify(new_product.to_dict())
     
