@@ -15,7 +15,7 @@ def validate_description(field_validations, name_base):
 
 def validate_image(field_validations, name_base):
     if not( gl.validate(field_validations[3], name_base)):
-        abort(400, description="Image field only accepts float")
+        abort(400, description="Image field only accepts string")
 
 def validate_responsible(field_validations, name_base):
     if not( gl.validate(field_validations[4], name_base)):
