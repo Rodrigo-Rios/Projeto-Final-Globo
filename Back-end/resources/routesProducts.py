@@ -18,7 +18,8 @@ def create_product(id):
         new_product = ProductsModel(body["name"], body["image_product"],
                                     body["description"], body["price"], body["extras"])
 
-        
+        new_product.extras = [item.casefold()
+                              for item in new_product.extras if type(item) == str]
 
         product = Products(name=new_product.name, image_product=new_product.image_product, description=new_product.description,
                            price=new_product.price, extras=new_product.extras, reference_restaurant_id=id)
@@ -32,16 +33,22 @@ def create_product(id):
 
         )
 
+        validate_name(field_validations, product)
+        product.name = product.name.casefold()
+
         already_exists = Products.query.filter_by(
-            name=new_product.name, reference_restaurant_id=id).first()
+            name=new_product.name.casefold(), reference_restaurant_id=id).first()
 
         if already_exists:
             abort(400, description="Product already exists in this restaurant")
 
-        validate_name(field_validations, product)
         validate_image(field_validations, product)
+
         validate_description(field_validations, product)
+        product.description = product.description.casefold()
+
         validate_price(field_validations, product)
+
         validate_extra(field_validations, product, new_product)
 
         database.session.add(product)
