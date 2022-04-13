@@ -3,11 +3,11 @@ from model.product import ProductsModel
 from resources.database_product import Products
 from resources.database_restaurant import Restaurants
 from flask import abort, jsonify, request
+from collections import OrderedDict
 import gladiator as gl
 # from resources.validate import *
 
-
-@app.route('/api/v1/restaurants/<int:id>', methods=['POST'])
+@app.route('/api/v1/restaurants/<int:id>/menu', methods=['POST'])
 
 def create_product(id):
 
@@ -18,8 +18,16 @@ def create_product(id):
         body = request.get_json()
         new_product = ProductsModel(body["name"], body["image_product"],
                                 body["description"], body["price"], body["extras"])
+       
+        unique_extras = OrderedDict.fromkeys(new_product.extras)
+        if len(new_product.extras) > len(unique_extras):
+             abort(400, description="Extras cannot be duplicated")
 
-    
+        already_exists = Products.query.filter_by(name=new_product.name, reference_restaurant_id = id).first()     
+
+        if already_exists:
+            abort(400, description="Product already exists in this restaurant")
+                
         product = Products(name = new_product.name, image_product = new_product.image_product, description = new_product.description, 
         price = new_product.price, extras = new_product.extras, reference_restaurant_id = id)
 
@@ -46,7 +54,7 @@ def create_product(id):
        abort(400, description="Restaurants not found")
 
 
-@app.route('/api/v1/restaurants/<int:id>', methods=['GET'])
+@app.route('/api/v1/restaurants/<int:id>/menu', methods=['GET'])
 def get_all_products_by_restaurants(id):
     
     restaurant = Restaurants.query.filter_by(restaurant_id=id).first()
