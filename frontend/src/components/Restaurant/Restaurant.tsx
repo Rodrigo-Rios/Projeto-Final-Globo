@@ -2,20 +2,25 @@ import React from 'react';
 import './restaurant.scss';
 
 interface RestaurantProps {
+  id: number;
   name: string;
   description: string;
   imgUrl?: string;
   onClick?: () => void;
+  activeRestaurant?: number;
 }
 
-function Restaurant({ name, description, imgUrl }: RestaurantProps) {
+function Restaurant({ id, name, description, imgUrl, onClick, activeRestaurant }: RestaurantProps) {
   imgUrl =
     imgUrl ||
     'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/de11c1f6-0d35-4170-9a40-147fbec8338a_COCOBAMBUSUL.png';
   return (
     <div
-      className="list-group-item list-group-item-action fs-4 d-flex align-items-center restaurante-item py-4"
+      className={`list-group-item list-group-item-action fs-4 d-flex align-items-center restaurante-item py-4 ${
+        activeRestaurant === id ? 'active' : ''
+      }`}
       aria-current="true"
+      onClick={onClick}
     >
       <img className="rounded-circle me-4 img-logo" src={imgUrl}></img>
       <div>

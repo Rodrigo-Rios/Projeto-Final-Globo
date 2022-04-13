@@ -27,8 +27,10 @@ function RestaurantList() {
             {restaurants.map((restaurant) => (
               <Restaurant
                 key={restaurant.restaurant_id}
+                id={restaurant.restaurant_id}
                 description={restaurant.description}
                 name={restaurant.name}
+                activeRestaurant={currentRestaurant}
                 onClick={() => handleClick(restaurant.restaurant_id)}
               />
             ))}

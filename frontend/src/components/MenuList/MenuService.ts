@@ -6,6 +6,6 @@ export default class MenuService {
   async getMenu(idRestaurant: number) {
     const response = await fetch(`${this.BASE_URL}/restaurants/${idRestaurant}/menu`);
     const menu = await response.json();
-    return menu;
+    return menu.menu;
   }
 }
