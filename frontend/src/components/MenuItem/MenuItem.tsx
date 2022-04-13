@@ -5,10 +5,11 @@ interface MenuItemProps {
   name: string;
   description: string;
   price: number;
+  extras: string[];
   imgUrl?: string;
 }
 
-function MenuItem({ name, description, price, imgUrl }: MenuItemProps) {
+function MenuItem({ name, description, price, imgUrl, extras }: MenuItemProps) {
   const imgSrc =
     imgUrl ||
     'https://static-images.ifood.com.br/image/upload/t_medium/pratos/a0474ddc-7b99-44eb-9a3d-21680f5ef80d/202101140932_MQbO_.jpeg';
@@ -19,6 +20,7 @@ function MenuItem({ name, description, price, imgUrl }: MenuItemProps) {
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text description">{description}</p>
+        <p className="mb-0">Extras: {extras.join(', ')}</p>
         <p className="price mb-0">R$ {price}</p>
       </div>
     </div>

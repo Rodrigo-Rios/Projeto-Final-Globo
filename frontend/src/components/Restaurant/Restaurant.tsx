@@ -5,6 +5,7 @@ interface RestaurantProps {
   name: string;
   description: string;
   imgUrl?: string;
+  onClick?: () => void;
 }
 
 function Restaurant({ name, description, imgUrl }: RestaurantProps) {

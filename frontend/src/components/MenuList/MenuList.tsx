@@ -1,15 +1,59 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MenuItem from '../MenuItem';
+import MenuService from './MenuService';
+import MenuModel from '../../models/MenuModel';
+interface MenuListProps {
+  id: number;
+}
 
-function MenuList() {
+function MenuList({ id }: MenuListProps) {
+  const menuService = new MenuService();
+
+  const [menu, setMenu] = React.useState<MenuModel>();
+
+  useEffect(() => {
+    menuService.getMenu(id).then((menu) => setMenu(menu));
+  }, []);
+
   return (
     <div className="ms-5 d-flex flex-column">
       <h2 className="ms-2">Cardapio</h2>
       <div className="d-flex flex-row flex-wrap">
-        <MenuItem name="Camarao internacional" description="camarao, ervilhas e muito mais" price={99.0} />
-        <MenuItem name="Camarao internacional" description="camarao, ervilhas e muito mais" price={99.0} />
-        <MenuItem name="Camarao internacional" description="camarao, ervilhas e muito mais" price={99.0} />
-        <MenuItem name="Camarao internacional" description="camarao, ervilhas e muito mais" price={99.0} />
+        {menu &&
+          menu.map((menu: MenuModel) => (
+            <MenuItem
+              key={menu.name}
+              name={menu.name}
+              description={menu.description}
+              price={menu.price}
+              extras={menu.extras}
+            />
+          ))}
+
+        <MenuItem
+          name="Camarao internacional"
+          description="camarao, ervilhas e muito mais"
+          price={99.0}
+          extras={['arroz', 'feijao']}
+        />
+        <MenuItem
+          name="Camarao internacional"
+          description="camarao, ervilhas e muito mais"
+          price={99.0}
+          extras={['arroz', 'feijao']}
+        />
+        <MenuItem
+          name="Camarao internacional"
+          description="camarao, ervilhas e muito mais"
+          price={99.0}
+          extras={['arroz', 'feijao']}
+        />
+        <MenuItem
+          name="Camarao internacional"
+          description="camarao, ervilhas e muito mais"
+          price={99.0}
+          extras={['arroz', 'feijao']}
+        />
       </div>
     </div>
   );

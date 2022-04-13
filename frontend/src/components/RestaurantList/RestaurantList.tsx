@@ -8,10 +8,15 @@ import MenuList from '../MenuList';
 function RestaurantList() {
   const restaurantService = new RestaurantService();
   const [restaurants, setRestaurants] = useState<RestaurantModel[]>([]);
+  const [currentRestaurant, setCurrentRestaurant] = useState<number>();
 
   useEffect(() => {
     restaurantService.getRestaurants().then(setRestaurants);
   }, []);
+
+  function handleClick(id: number) {
+    setCurrentRestaurant(id);
+  }
 
   return (
     <>
@@ -20,11 +25,16 @@ function RestaurantList() {
           <h2>Restaurantes</h2>
           <div className="list-group">
             {restaurants.map((restaurant) => (
-              <Restaurant key={restaurant.restaurant_id} description={restaurant.description} name={restaurant.name} />
+              <Restaurant
+                key={restaurant.restaurant_id}
+                description={restaurant.description}
+                name={restaurant.name}
+                onClick={() => handleClick(restaurant.restaurant_id)}
+              />
             ))}
           </div>
         </div>
-        <MenuList />
+        {currentRestaurant && <MenuList id={currentRestaurant} />}
       </div>
     </>
   );
