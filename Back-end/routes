@@ -1,7 +1,7 @@
 Products
 
-Post: http://127.0.0.1:5000/api/v1/restaurants/<id do restaurantes>
-Get:  http://127.0.0.1:5000/api/v1/restaurants/<id do restaurantes>
+Post: http://127.0.0.1:5000/api/v1/restaurants/<id do restaurantes>/menu
+Get:  http://127.0.0.1:5000/api/v1/restaurants/<id do restaurantes>/menu
 
 Restaurants
 
