@@ -1,5 +1,5 @@
 const env = {
-  BASE_URL: 'http://localhost:4000',
+  BASE_URL: 'http://localhost:5000/api/v1',
 };
 
 export default env;
