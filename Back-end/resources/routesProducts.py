@@ -7,10 +7,6 @@ from collections import OrderedDict
 import gladiator as gl
 # from resources.validate import *
 
-def checkForDuplicates (elements):
-    setOfElems = set()
-
-
 @app.route('/api/v1/restaurants/<int:id>/menu', methods=['POST'])
 
 def create_product(id):
