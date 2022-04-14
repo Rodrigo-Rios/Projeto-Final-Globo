@@ -13,7 +13,6 @@ function RestaurantForm() {
     responsible_name: '',
   });
 
-  // const { handleSubmit } = useForm();
   const onSubmit = (event: any) => {
     event.preventDefault();
 
@@ -22,6 +21,13 @@ function RestaurantForm() {
         ...formData,
       })
       .then(() => {
+        setFormData({
+            name: '',
+            address: '',
+            description: '',
+            image_restaurant: '',
+            responsible_name: '',
+          })
         toast.success('Restaurante cadastrado com sucesso!');
       })
       .catch(() => {
