@@ -1,10 +1,10 @@
 from model import app, database
 from model.product import ProductsModel
-from resources.databaseProduct import Products
-from resources.databaseRestaurant import Restaurants
+from resources.database_product import Products
+from resources.database_restaurant import Restaurants
 from flask import abort, jsonify, request
 import gladiator as gl
-from resources.validationsProducts import validate_name, validate_description, validate_extra, validate_image, validate_price
+from resources.validations_products import validate_name, validate_description, validate_extra, validate_image, validate_price
 
 
 @app.route('/api/v1/restaurants/<int:id>/menu', methods=['POST'])

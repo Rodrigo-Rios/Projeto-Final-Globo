@@ -29,6 +29,7 @@ function RestaurantList() {
                 key={restaurant.restaurant_id}
                 id={restaurant.restaurant_id}
                 description={restaurant.description}
+                image_restaurant={restaurant.image_restaurant}
                 name={restaurant.name}
                 activeRestaurant={currentRestaurant}
                 onClick={() => handleClick(restaurant.restaurant_id)}

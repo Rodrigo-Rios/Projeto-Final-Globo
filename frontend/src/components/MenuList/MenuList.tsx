@@ -26,6 +26,7 @@ function MenuList({ id }: MenuListProps) {
             <MenuItem
               key={index}
               name={menu.name}
+              image_product={menu.image_product}
               description={menu.description}
               price={menu.price}
               extras={menu.extras}
