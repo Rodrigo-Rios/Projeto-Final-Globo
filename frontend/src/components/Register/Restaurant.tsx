@@ -46,7 +46,9 @@ function RestaurantForm() {
   return (
     <div>
       <ToastContainer position="bottom-right" />
-      <h3>Cadastro de Restaurantes</h3>
+      <br/>
+      <h4>Insira aqui os dados do restaurante</h4>
+      <br/>
       <form onSubmit={onSubmit}>
         <div>Nome</div>
         <input name="name" value={formData.name} onChange={handleChange} />
