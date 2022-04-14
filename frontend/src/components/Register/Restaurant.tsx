@@ -31,7 +31,7 @@ function RestaurantForm() {
         toast.success('Restaurante cadastrado com sucesso!');
       })
       .catch(() => {
-        toast.error('Erro ao cadastrar restaurante!');
+        toast.error('Erro ao cadastrar restaurante! Verifique os dados e tente novamente.');
       });
   };
 
