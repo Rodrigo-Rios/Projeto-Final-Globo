@@ -72,7 +72,6 @@ function RestaurantForm() {
           <input name="description" type="text" className="form-control" value={formData.description} onChange={handleChange} />
         </div>
 
-
         <div className="mb-3">
           <label htmlFor="image_restaurant" className="form-label">
             Logo do Restaurante
