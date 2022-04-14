@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FormCardapio from './FormCardapio';
+import RestaurantForm from '../Register/Restaurant';
 
 function FormRestaurant() {
   const [nav, setNav] = useState('restaurante');
@@ -32,7 +33,7 @@ function FormRestaurant() {
         </li>
       </ul>
 
-      {nav === 'restaurante' ? 'Restaurente' : <FormCardapio />}
+      {nav === 'restaurante' ? <RestaurantForm /> : <FormCardapio />}
     </>
   );
 }

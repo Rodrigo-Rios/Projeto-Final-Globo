@@ -7,7 +7,7 @@ function FormCardapio() {
   const [restaurants, setRestaurants] = useState([]);
   const [form, setForm] = useState({
     restaurant: '',
-    product: '',
+    name: '',
     description: '',
     price: '',
   });
@@ -34,10 +34,22 @@ function FormCardapio() {
     setForm({ ...form, [name]: value });
   }
 
+  function resetForm() {
+    setForm({ restaurant: '', name: '', description: '', price: '' });
+    setInputList([{ extra: '' }]);
+  }
+
   function onSubmit(event: any) {
     event.preventDefault();
-    console.log(form);
-    console.log(inputList);
+    const payload = {
+      name: form.name,
+      image_product: 'img.png',
+      price: parseFloat(form.price),
+      description: form.description,
+      extras: inputList.map((item: any) => item.extra),
+    };
+    const res = restaurantService.addMenu(form.restaurant, payload);
+    resetForm();
   }
 
   return (
@@ -62,8 +74,8 @@ function FormCardapio() {
         </label>
         <input
           type="text"
-          name="product"
-          value={form.product}
+          name="name"
+          value={form.name}
           onChange={handleChange}
           className="form-control"
           id="product"
