@@ -22,12 +22,12 @@ function RestaurantForm() {
       })
       .then(() => {
         setFormData({
-            name: '',
-            address: '',
-            description: '',
-            image_restaurant: '',
-            responsible_name: '',
-          })
+          name: '',
+          address: '',
+          description: '',
+          image_restaurant: '',
+          responsible_name: '',
+        })
         toast.success('Restaurante cadastrado com sucesso!');
       })
       .catch(() => {
@@ -46,21 +46,49 @@ function RestaurantForm() {
   return (
     <div>
       <ToastContainer position="bottom-right" />
-      <br/>
-      <h4>Insira aqui os dados do restaurante</h4>
-      <br/>
-      <form onSubmit={onSubmit}>
-        <div>Nome</div>
-        <input name="name" value={formData.name} onChange={handleChange} />
-        <div>Endereço</div>
-        <input name="address" value={formData.address} onChange={handleChange} />
-        <div>Descrição</div>
-        <input name="description" value={formData.description} onChange={handleChange} />
-        <div>Logo</div>
-        <input name="image_restaurant" value={formData.image_restaurant} onChange={handleChange} />
-        <div>Pessoa Responsável</div>
-        <input name="responsible_name" value={formData.responsible_name} onChange={handleChange} />
-        <button type="submit"> Enviar </button>
+      <br /><br />
+      <form className="col-6" onSubmit={onSubmit}>
+
+        <div className="mb-3">
+          <label htmlFor="restaurant" className="form-label">
+            Nome do Restaurante
+          </label>
+          <input name="name" type="text" className="form-control" value={formData.name} onChange={handleChange} />
+        </div>
+
+
+        <div className="mb-3">
+          <label htmlFor="address" className="form-label">
+            Endereço do Restaurante
+          </label>
+          <input name="address" type="text" className="form-control" value={formData.address} onChange={handleChange} />
+        </div>
+
+
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">
+            Descrição do Restaurante
+          </label>
+          <input name="description" type="text" className="form-control" value={formData.description} onChange={handleChange} />
+        </div>
+
+
+        <div className="mb-3">
+          <label htmlFor="image_restaurant" className="form-label">
+            Logo do Restaurante
+          </label>
+          <input name="image_restaurant" type="text" className="form-control" value={formData.image_restaurant} onChange={handleChange} />
+        </div>
+
+
+        <div className="mb-3">
+          <label htmlFor="image_restaurant" className="form-label">
+            Responsável pelo Restaurante
+          </label>
+          <input name="responsible_name" type="text" className="form-control" value={formData.responsible_name} onChange={handleChange} />
+        </div>
+
+        <button type="submit" className="btn btn-primary"> Cadastrar </button>
       </form>
     </div>
   );
