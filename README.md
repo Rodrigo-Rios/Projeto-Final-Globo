@@ -6,7 +6,7 @@ desafio foi o desafio final do GloboTech Academy.
 
 ## Executando projeto:
 
-Você pode acessar tanto nosso frontend que está em bucket da aws em : http://jasons-frontend.s3-website-sa-east-1.amazonaws.com/ e nossa API que está em: http://jasons-frontend.s3-website-sa-east-1.amazonaws.com/
+Você pode acessar tanto nosso frontend que está em bucket da aws em : http://jasons-frontend.s3-website-sa-east-1.amazonaws.com/ e nossa API que está em: http://15.229.30.9/api/v1/restaurants
 ## Configuração para execução na sua máquina
 ### Docker:
 
