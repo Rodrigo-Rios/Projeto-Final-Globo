@@ -21,8 +21,8 @@ class RestaurantsModel:
         
         return {
             "restaurantName": self.name,
-            "restaurantAddress": self.address,
+            "restaurant_address": self.address,
             "description": self.description,
-            "imageRestaurant": self.image_restaurant,
-            "responsibleName": self.responsible_name
+            "image_restaurant": self.image_restaurant,
+            "responsible_name": self.responsible_name
             }

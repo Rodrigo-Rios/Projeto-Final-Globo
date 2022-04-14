@@ -21,7 +21,7 @@ class ProductsModel:
         
         return {
             "name": self.name,
-            "imageProduct": self.image_product,
+            "image_product": self.image_product,
             "description": self.description,
             "price": self.price,
             "extras": self.extras,
