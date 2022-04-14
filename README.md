@@ -1,23 +1,17 @@
 
 # Desafio Final Globo - Aplicativo de pedidos
---------------------------------------------
 
 O JASON's Food é uma aplicação para cadastro e listagem de restaurantes e cardápios inspirado no iFood para o filhinho do nosso professor Zé cloud. Esse 
 desafio foi o desafio final do GloboTech Academy.
 
 
 ## Configuração
----------------------------------------------
-
-
 
 ## Funcionalidades
----------------------------------------------
 
 O aplicativo possui as funcionalidades abaixo:
 
 ### Cadastrar Restaurante
----------------------------------------------
 
 É possível cadastrar restaurantes que vão oferecer os serviços no aplicativo
 
@@ -32,7 +26,6 @@ O aplicativo possui as funcionalidades abaixo:
 - Nome do Responsável: Nome do responsável pelo restaurante (obrigatório)
 
 ### Cadastrar Produto
----------------------------------------------
 
 É possível cadastrar produtos e obrigatóriamente tem que informar para qual restaurante será cadastrado o produto.
 
@@ -49,7 +42,6 @@ O aplicativo possui as funcionalidades abaixo:
 
 
 ### Endpoints disponíveis:
----------------------------------------------
 
 #### Products
 
@@ -65,7 +57,6 @@ O aplicativo possui as funcionalidades abaixo:
 
 
 ### O endpoint /api/v1/restaurants (Post)
----------------------------------------------
   
 Cadastra o restaurante.
 
@@ -95,7 +86,6 @@ POST /api/v1/restaurants
 ```  
 
 ### O endpoint /api/v1/restaurants (Get)
----------------------------------------------
   
 #### Requisição
 Lista todos o restaurantes cadastrados por ordem alfabética verificando o campo name
@@ -125,7 +115,7 @@ GET api/v1/restaurants
 ```
   
 ### O endpoint /api/v1/restaurants/<restaurant_id>/menu(Post)
----------------------------------------------
+
 
 Cadastra os produtos correspondentes ao ID do restaurante que é passado na rota.
   
@@ -157,7 +147,6 @@ Post /api/v1/restaurants/1/menu
 
   
 ### O endpoint /api/v1/restaurants/<restaurant_id>/menu(Get)
----------------------------------------------
 
 Retorna todos os produtos cadastrados no restaurante informado na rota.
   
