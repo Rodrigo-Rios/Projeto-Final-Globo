@@ -51,7 +51,6 @@ function RestaurantForm() {
       <br/>
       <form onSubmit={onSubmit}>
         <div>Nome</div>
-        
         <input name="name" value={formData.name} onChange={handleChange} />
         <div>Endereço</div>
         <input name="address" value={formData.address} onChange={handleChange} />
