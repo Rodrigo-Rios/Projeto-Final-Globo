@@ -4,7 +4,9 @@ import RestaurantService from '../../RestaurantList/RestaurantService';
 import RestaurantModel from '../../../models/RestaurantModel';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+interface Extra{
+  extra: string;    
+}
 function FormCardapio() {
   const restaurantService = new RestaurantService();
   const [restaurants, setRestaurants] = useState([]);
@@ -15,16 +17,19 @@ function FormCardapio() {
     price: '',
   });
 
-  const [inputList, setInputList] = useState([{ extra: '' }]);
+  const [inputList, setInputList] = useState<Extra[]>([{ extra: '' }]);
 
   const handleAddClick = () => {
     setInputList([...inputList, { extra: '' }]);
   };
 
-  const handleInputChange = (e: any, index: any) => {
-    const { name, value } = e.target;
+  const handleInputChange = (e: any, index: number) => {
+    const { name, value  } = e.target;
     const list = [...inputList];
-    list[index][name] = value;
+    const indexArray: keyof [] = index;
+    const key: keyof Extra = name
+    list[indexArray][key] = value;
+    
     setInputList(list);
   };
 
