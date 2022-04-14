@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function RestaurantForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -14,9 +17,16 @@ function RestaurantForm() {
   const onSubmit = (event: any) => {
     event.preventDefault();
 
-    axios.post('http://127.0.0.1:5000/api/v1/restaurants', {
-      ...formData,
-    });
+    axios
+      .post('http://127.0.0.1:5000/api/v1/restaurants', {
+        ...formData,
+      })
+      .then(() => {
+        toast.success('Restaurante cadastrado com sucesso!');
+      })
+      .catch(() => {
+        toast.error('Erro ao cadastrar restaurante!');
+      });
   };
 
   function handleChange(event: any) {
@@ -29,6 +39,7 @@ function RestaurantForm() {
 
   return (
     <div>
+      <ToastContainer position="bottom-right" />
       <h3>Cadastro de Restaurantes</h3>
       <form onSubmit={onSubmit}>
         <div>Nome</div>
