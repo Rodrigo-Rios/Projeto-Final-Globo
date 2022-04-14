@@ -13,6 +13,7 @@ function FormCardapio() {
   const [form, setForm] = useState({
     restaurant: '',
     name: '',
+    image_product: '',
     description: '',
     price: '',
   });
@@ -43,7 +44,7 @@ function FormCardapio() {
   }
 
   function resetForm() {
-    setForm({ restaurant: '', name: '', description: '', price: '' });
+    setForm({ restaurant: '', name: '', description: '', image_product:'', price: '' });
     setInputList([{ extra: '' }]);
   }
 
@@ -51,7 +52,7 @@ function FormCardapio() {
     event.preventDefault();
     const payload = {
       name: form.name,
-      image_product: 'img.png',
+      image_product: form.image_product,
       price: parseFloat(form.price),
       description: form.description,
       extras: inputList.map((item: any) => item.extra),
@@ -59,11 +60,11 @@ function FormCardapio() {
     restaurantService
       .addMenu(form.restaurant, payload)
       .then(() => {
-        toast.success('Cardapio cadastrado com sucesso!');
+        toast.success('Cardápio cadastrado com sucesso!');
         resetForm();
       })
       .catch(() => {
-        toast.error('Erro ao cadastrar cardapio! Verique os dados e tente novamente.');
+        toast.error('Erro ao cadastrar cardapio! Verifique os dados e tente novamente.');
       });
   }
 
@@ -115,6 +116,20 @@ function FormCardapio() {
         </div>
 
         <div className="mb-3">
+          <label htmlFor="image_product" className="form-label">
+            Imagem do Produto
+          </label>
+          <input
+            type="text"
+            name="image_product"
+            value={form.image_product}
+            onChange={handleChange}
+            className="form-control"
+            id="price"
+          />
+        </div>
+
+        <div className="mb-3">
           <label htmlFor="price" className="form-label">
             Preço
           </label>
@@ -127,7 +142,7 @@ function FormCardapio() {
             id="price"
           />
         </div>
-
+       
         <div className="mb-3">
           <label htmlFor="extra" className="form-label">
             Extras
