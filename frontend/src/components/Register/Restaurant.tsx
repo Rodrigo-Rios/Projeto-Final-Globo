@@ -56,7 +56,6 @@ function RestaurantForm() {
           <input name="name" type="text" className="form-control" value={formData.name} onChange={handleChange} />
         </div>
 
-
         <div className="mb-3">
           <label htmlFor="address" className="form-label">
             Endereço do Restaurante
