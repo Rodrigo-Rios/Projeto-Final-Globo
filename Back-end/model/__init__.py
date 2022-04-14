@@ -10,8 +10,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///restaurants.db"
 database = SQLAlchemy(app)
 
 
-from resources import routesProducts
-from resources import routesRestaurants
+from resources import routes_products
+from resources import routes_restaurants
 
 
 if database:

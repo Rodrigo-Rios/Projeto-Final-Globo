@@ -1,19 +1,18 @@
-import React from 'react';
+import React, {useState } from 'react';
 import './restaurant.scss';
+import axios from 'axios';
 
 interface RestaurantProps {
   id: number;
   name: string;
   description: string;
-  imgUrl?: string;
+  image_restaurant: string;
   onClick?: () => void;
   activeRestaurant?: number;
 }
 
-function Restaurant({ id, name, description, imgUrl, onClick, activeRestaurant }: RestaurantProps) {
-  imgUrl =
-    imgUrl ||
-    'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/de11c1f6-0d35-4170-9a40-147fbec8338a_COCOBAMBUSUL.png';
+function Restaurant({ id, name, description, image_restaurant, onClick, activeRestaurant }: RestaurantProps) {
+    
   return (
     <div
       className={`list-group-item list-group-item-action fs-4 d-flex align-items-center restaurante-item py-4 ${
@@ -22,7 +21,8 @@ function Restaurant({ id, name, description, imgUrl, onClick, activeRestaurant }
       aria-current="true"
       onClick={onClick}
     >
-      <img className="rounded-circle me-4 img-logo" src={imgUrl}></img>
+      
+      <img className="rounded-circle me-4 img-logo" src={image_restaurant}></img>  
       <div>
         {name}
         <p className="fw-light fs-6 mb-0">{description}</p>

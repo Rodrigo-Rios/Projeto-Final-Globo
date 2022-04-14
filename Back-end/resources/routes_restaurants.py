@@ -1,9 +1,9 @@
 from model import app, database
 from model.restaurant import RestaurantsModel
-from resources.databaseRestaurant import Restaurants
+from resources.database_restaurant import Restaurants
 from flask import abort, jsonify, request
 import gladiator as gl
-from resources.validationsRestaurants import validate_name, validate_description, validate_address, validate_image, validate_responsible
+from resources.validations_restaurants import validate_name, validate_description, validate_address, validate_image, validate_responsible
 
 
 @app.route('/api/v1/restaurants', methods=['POST'])
