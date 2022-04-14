@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import RestaurantList from './components/RestaurantList';
-import RestaurantForm from './components/Register'
+import FormRestaurant from './components/FormRestaurant';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route index element={<RestaurantList />} />
-        <Route path='/Cadastro' element={<RestaurantForm/>}/>
+        <Route path="/Cadastro" element={<FormRestaurant />} />
       </Routes>
     </div>
   );
