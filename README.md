@@ -4,8 +4,27 @@
 O JASON's Food é uma aplicação para cadastro e listagem de restaurantes e cardápios inspirado no iFood para o filhinho do nosso professor Zé cloud. Esse 
 desafio foi o desafio final do GloboTech Academy.
 
+## Executando projeto:
 
-## Configuração
+Você pode acessar tanto nosso frontend que está em bucket da aws em : http://jasons-frontend.s3-website-sa-east-1.amazonaws.com/ e nossa API que está em: http://jasons-frontend.s3-website-sa-east-1.amazonaws.com/
+## Configuração para execução na sua máquina
+### Docker:
+
+#### Docker-compose
+
+No diretório raiz do repositório, execute o seguinte comando:
+
+```
+$ docker-compose up -d --build
+```
+
+##### Requisitos: 
+Ter o docker e docker compose instalado.
+
+
+### Containers docker separados
+
+Em cada pasta (backend e frontend) possui uma arquivo de script (deploy.sh) para subir containers individuais do docker para o front e para o back.
 
 ## Funcionalidades
 
