@@ -20,7 +20,7 @@ def create_restaurants():
         ('name', gl.required, gl.type_(str)),
         ('address', gl.required, gl.type_(str)),
         ('description', gl.required, gl.type_(str)),
-        ('image_restaurant', gl.required, gl.type_(str)),
+        ('image_restaurant', gl.type_(str)),
         ('responsible_name', gl.required, gl.type_(str))
     )
 

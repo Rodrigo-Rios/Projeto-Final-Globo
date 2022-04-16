@@ -26,7 +26,7 @@ def create_product(id):
 
         field_validations = (
             ('name', gl.required, gl.type_(str)),
-            ('image_product', gl.required, gl.type_(str)),
+            ('image_product', gl.type_(str)),
             ('description', gl.required, gl.type_(str)),
             ('price', gl.required, gl.type_(float)),
             ('extras', gl.required, gl.type_(list)),
