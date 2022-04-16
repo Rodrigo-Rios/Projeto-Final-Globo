@@ -11,11 +11,14 @@ interface MenuItemProps {
 
 function MenuItem({ name, description, price, image_product, extras }: MenuItemProps) {
  
+  const image_product_src =
+  image_product ||
+    '../src/images/no_image2.png';
   
 
   return (
     <div className="card ms-2 mb-2" style={{ width: '18rem' }}>
-      <img src={image_product} className="card-img-top" alt="" />
+      <img src={image_product_src} className="card-img-top" alt="" />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text description">{description}</p>
